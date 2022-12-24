@@ -7,6 +7,71 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Mentor{
-  id Int @idA
+model Kelamin {
+  id String @id @default(uuid())
+  nama String
+  createdAt DateTime @default(now())  
+  updatedAt DateTime @updatedAt
+
+  keluarga Keluarga[]
+
+  @@map("kelamin")
+}
+
+model StatusKeluarga{
+  id String @id @default(uuid())
+  nama String
+  createdAt DateTime @default(now())  
+  updatedAt DateTime @updatedAt
+
+  keluarga Keluarga[]
+
+  @@map("status_keluarga")
+}
+
+model Marga{
+  id String @id @default(uuid())
+  nama String
+  createdAt DateTime @default(now())  
+  updatedAt DateTime @updatedAt
+
+  keluarga Keluarga[]
+  
+  @@map("marga")
+}
+
+
+model Keluarga {
+  id String @id @default(uuid())
+  nama String
+
+  idKelamin String @map("id_kelamin")
+  kelamin Kelamin @relation(fields: [idKelamin], references: [id], onDelete: NoAction, map: "KELUARGA_KELAMIN_ID")
+
+  idMarga String @map("id_marga")
+  marga Marga @relation(fields: [idMarga], references: [id], onDelete: Cascade, map: "KELUARGA_MARGA_ID")
+
+  idStatusKeluarga String @map("id_status_keluarga")
+  statusKeluarga StatusKeluarga @relation(fields: [idStatusKeluarga],references: [id], onDelete: NoAction, map: "KELUARGA_STATUS_KELUARGA_ID")
+
+  createdAt DateTime @default(now())  
+  updatedAt DateTime @updatedAt
+
+  asset Asset[]
+
+  @@map("keluarga")
+}
+
+model Asset {
+  id String @id @default(uuid())
+  price Int
+  description String @db.Text
+
+  idKeluarga String @map("id_keluarga")
+  keluarga Keluarga? @relation(fields: [idKeluarga], references: [id], map: "ASSET_KELUARGA_ID")
+
+  createdAt DateTime @default(now())  
+  updatedAt DateTime @updatedAt
+
+  @@map("asset")
 }
