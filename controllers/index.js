@@ -4,6 +4,7 @@ const keluarga = require("./keluarga");
 const product = require("./product");
 const asset = require("./asset");
 const marga = require("./marga");
+const assetKeluarga = require("./assetKeluarga");
 
 const controllers = {
   kelamin,
@@ -12,6 +13,7 @@ const controllers = {
   product,
   asset,
   marga,
+  assetKeluarga,
 };
 
 module.exports = controllers;

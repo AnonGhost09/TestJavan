@@ -20,7 +20,12 @@ const getAll = async () => {
           nama: true,
         },
       },
-      asset: true,
+      assets: {
+        select: {
+          id: true,
+          asset: true,
+        },
+      },
     },
   });
 };

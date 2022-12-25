@@ -48,7 +48,7 @@ model Keluarga {
   kelamin          Kelamin         @relation(fields: [idKelamin], references: [id], onDelete: NoAction, map: "KELUARGA_KELAMIN_ID")
   marga            Marga           @relation(fields: [idMarga], references: [id], onDelete: Cascade, map: "KELUARGA_MARGA_ID")
   statusKeluarga   StatusKeluarga  @relation(fields: [idStatusKeluarga], references: [id], onDelete: NoAction, map: "KELUARGA_STATUS_KELUARGA_ID")
-  asset            KeluargaAsset[]
+  assets            KeluargaAsset[]
 
   @@map("keluarga")
 }
@@ -71,7 +71,7 @@ model Asset {
   createdAt   DateTime        @default(now())
   updatedAt   DateTime        @updatedAt
   title       String
-  keluarga    KeluargaAsset[]
+  keluargas    KeluargaAsset[]
 
   @@map("asset")
 }
