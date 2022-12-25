@@ -1,6 +1,8 @@
+const e = require("express");
 const Validator = require("fastest-validator");
 const v = new Validator();
 const keluarga = require("../libs/keluarga");
+const apiUser = require("../utils/apiProduct");
 
 const getAll = async (req, res) => {
   try {
@@ -113,7 +115,55 @@ const deleteOne = async (req, res) => {
 
     return res.status(400).json({
       status: "error",
-      message: "Data Gagal Dihapus",
+      message: "Data Gagal dihapus",
+    });
+  }
+};
+
+const getTotalPrice = async (req, res) => {
+  try {
+    const resultProduct = await apiUser.get();
+    const productList = resultProduct.data.products.map((product) => {
+      return {
+        title: product.title,
+        price: product.price,
+      };
+    });
+
+    const dataKeluarga = await keluarga.getAll();
+    const dataConvert = dataKeluarga.map((data) => {
+      let totalPrice = 0;
+
+      return {
+        nama: data.nama,
+        kelamin: data.kelamin.nama,
+        assets: data.assets.map((result) => {
+          let price = 0;
+          productList.forEach((product) => {
+            if (product.title === result.asset.title) {
+              price += product.price;
+            }
+          });
+
+          totalPrice += price;
+          return {
+            title: result.asset.title,
+            description: result.asset.description,
+            price: price,
+          };
+        }),
+        totalPrice,
+      };
+    });
+
+    return res.status(200).json({
+      status: "success",
+      data: dataConvert,
+    });
+  } catch (error) {
+    return res.status(400).json({
+      status: "error",
+      message: "Data gagal ditampikan",
     });
   }
 };
@@ -123,6 +173,7 @@ const controller = {
   create,
   deleteOne,
   update,
+  getTotalPrice,
 };
 
 module.exports = controller;
