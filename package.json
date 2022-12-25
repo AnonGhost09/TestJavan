@@ -5,11 +5,11 @@
     "node": "18.x"
   },
   "prisma": {
-    "seed": "nodemon prisma/seed.js"
+    "seed": "node prisma/seed.js"
   },
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "nodemon ./bin/www"
   },
   "dependencies": {
     "@prisma/client": "^4.8.0",

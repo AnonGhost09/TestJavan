@@ -8,70 +8,70 @@ datasource db {
 }
 
 model Kelamin {
-  id String @id @default(uuid())
-  nama String
-  createdAt DateTime @default(now())  
-  updatedAt DateTime @updatedAt
-
-  keluarga Keluarga[]
+  id        String     @id @default(uuid())
+  nama      String
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  keluarga  Keluarga[]
 
   @@map("kelamin")
 }
 
-model StatusKeluarga{
-  id String @id @default(uuid())
-  nama String
-  createdAt DateTime @default(now())  
-  updatedAt DateTime @updatedAt
-
-  keluarga Keluarga[]
+model StatusKeluarga {
+  id        String     @id @default(uuid())
+  nama      String
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  keluarga  Keluarga[]
 
   @@map("status_keluarga")
 }
 
-model Marga{
-  id String @id @default(uuid())
-  nama String
-  createdAt DateTime @default(now())  
-  updatedAt DateTime @updatedAt
+model Marga {
+  id        String     @id @default(uuid())
+  nama      String
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  keluarga  Keluarga[]
 
-  keluarga Keluarga[]
-  
   @@map("marga")
 }
 
-
 model Keluarga {
-  id String @id @default(uuid())
-  nama String
-
-  idKelamin String @map("id_kelamin")
-  kelamin Kelamin @relation(fields: [idKelamin], references: [id], onDelete: NoAction, map: "KELUARGA_KELAMIN_ID")
-
-  idMarga String @map("id_marga")
-  marga Marga @relation(fields: [idMarga], references: [id], onDelete: Cascade, map: "KELUARGA_MARGA_ID")
-
-  idStatusKeluarga String @map("id_status_keluarga")
-  statusKeluarga StatusKeluarga @relation(fields: [idStatusKeluarga],references: [id], onDelete: NoAction, map: "KELUARGA_STATUS_KELUARGA_ID")
-
-  createdAt DateTime @default(now())  
-  updatedAt DateTime @updatedAt
-
-  asset Asset[]
+  id               String          @id @default(uuid())
+  nama             String
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime        @updatedAt
+  idKelamin        String          @map("id_kelamin")
+  idMarga          String          @map("id_marga")
+  idStatusKeluarga String          @map("id_status_keluarga")
+  kelamin          Kelamin         @relation(fields: [idKelamin], references: [id], onDelete: NoAction, map: "KELUARGA_KELAMIN_ID")
+  marga            Marga           @relation(fields: [idMarga], references: [id], onDelete: Cascade, map: "KELUARGA_MARGA_ID")
+  statusKeluarga   StatusKeluarga  @relation(fields: [idStatusKeluarga], references: [id], onDelete: NoAction, map: "KELUARGA_STATUS_KELUARGA_ID")
+  asset            KeluargaAsset[]
 
   @@map("keluarga")
 }
 
+model KeluargaAsset {
+  id         String    @id @default(uuid())
+  idKeluarga String?   @map("id_keluarga")
+  idAsset    String?   @map("id_asset")
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  asset      Asset?    @relation(fields: [idAsset], references: [id], onDelete: Cascade)
+  keluarga   Keluarga? @relation(fields: [idKeluarga], references: [id], onDelete: Cascade)
+
+  @@map("keluarga_asset")
+}
+
 model Asset {
-  id String @id @default(uuid())
-  price Int
-  description String @db.Text
-
-  idKeluarga String @map("id_keluarga")
-  keluarga Keluarga? @relation(fields: [idKeluarga], references: [id], map: "ASSET_KELUARGA_ID")
-
-  createdAt DateTime @default(now())  
-  updatedAt DateTime @updatedAt
+  id          String          @id @default(uuid())
+  description String
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+  title       String
+  keluarga    KeluargaAsset[]
 
   @@map("asset")
 }

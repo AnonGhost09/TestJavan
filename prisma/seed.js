@@ -1,3 +1,4 @@
+const apiUser = require("../utils/apiProduct");
 const prisma = require("../utils/db");
 
 async function main() {
@@ -5,7 +6,7 @@ async function main() {
   const deleteStatusKeluarga = prisma.statusKeluarga.deleteMany();
   const deleteKeluarga = prisma.keluarga.deleteMany();
   const deleteMarga = prisma.marga.deleteMany();
-  const deleteAsset = prisma.marga.deleteMany();
+  const deleteAsset = prisma.asset.deleteMany();
 
   await prisma.$transaction([
     deleteKelamin,
@@ -14,6 +15,18 @@ async function main() {
     deleteKeluarga,
     deleteStatusKeluarga,
   ]);
+
+  const result = await apiUser.get();
+  const productList = result.data.products.map((product) => {
+    return {
+      title: product.title,
+      description: product.description,
+    };
+  });
+
+  await prisma.asset.createMany({
+    data: productList,
+  });
 
   await prisma.kelamin.createMany({
     data: [

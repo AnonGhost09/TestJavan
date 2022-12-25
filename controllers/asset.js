@@ -1,10 +1,10 @@
 const Validator = require("fastest-validator");
 const v = new Validator();
-const keluarga = require("../libs/keluarga");
+const asset = require("../libs/asset");
 
 const getAll = async (req, res) => {
   try {
-    const result = await keluarga.getAll();
+    const result = await asset.getAll();
 
     return res.status(200).json({
       status: "success",
@@ -13,18 +13,15 @@ const getAll = async (req, res) => {
   } catch (error) {
     return res.status(400).json({
       status: "error",
-      message: "Keluarga gagal ditampilkan",
+      message: "Asset gagal ditampilkan",
     });
   }
 };
 
 const create = async (req, res) => {
   const schema = {
-    nama: "string|empty:false",
-    idKelamin: "string|empty:false",
-    idStatusKeluarga: "string|empty:false",
-    idMarga: "string",
-    namaMarga: "string|empty:false",
+    title: "string|empty:false",
+    description: "string|empty:false",
   };
 
   const validate = v.validate(req.body, schema);
@@ -37,7 +34,7 @@ const create = async (req, res) => {
   }
 
   try {
-    const result = await keluarga.create(req.body);
+    const result = await asset.create(req.body);
 
     return res.status(201).json({
       status: "success",
@@ -47,17 +44,38 @@ const create = async (req, res) => {
     console.log(error);
     return res.status(400).json({
       status: "error",
-      message: "Keluarga gagal dibuat",
+      message: "Asset gagal dibuat",
+    });
+  }
+};
+
+const deleteOne = async (req, res) => {
+  try {
+    await asset.deleteOne(req.params.id);
+
+    return res.status(200).json({
+      status: "success",
+      message: "Data Asset Berhasil Dihapus",
+    });
+  } catch (error) {
+    if (error.code === "P2025") {
+      return res.status(404).json({
+        status: "error",
+        message: "Data yang ingin dihapus tidak ada",
+      });
+    }
+
+    return res.status(400).json({
+      status: "error",
+      message: "Data Gagal Dihapus",
     });
   }
 };
 
 const update = async (req, res) => {
   const schema = {
-    nama: "string|optional",
-    idKelamin: "string|optional",
-    idStatusKeluarga: "string|optional",
-    idMarga: "string|optional",
+    title: "string|optional",
+    description: "string|optional",
   };
 
   const validate = v.validate(req.body, schema);
@@ -75,7 +93,7 @@ const update = async (req, res) => {
   };
 
   try {
-    const result = await keluarga.update(data);
+    const result = await asset.update(data);
 
     return res.status(201).json({
       status: "success",
@@ -90,30 +108,7 @@ const update = async (req, res) => {
     }
     return res.status(400).json({
       status: "error",
-      message: "Keluarga gagal di update",
-    });
-  }
-};
-
-const deleteOne = async (req, res) => {
-  try {
-    await keluarga.deleteOne(req.params.id);
-
-    return res.status(200).json({
-      status: "success",
-      message: "Data Keluarga Berhasil Dihapus",
-    });
-  } catch (error) {
-    if (error.code === "P2025") {
-      return res.status(404).json({
-        status: "error",
-        message: "Data yang ingin dihapus tidak ada",
-      });
-    }
-
-    return res.status(400).json({
-      status: "error",
-      message: "Data Gagal Dihapus",
+      message: "Asset gagal di update",
     });
   }
 };
