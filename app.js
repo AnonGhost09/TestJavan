@@ -12,6 +12,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+app.get("/hauw", (req, res) => {
+  res.json({
+    status: "tes",
+  });
+});
 app.use("/api/v1", indexRouter);
 
 module.exports = app;
