@@ -1,0 +1,515 @@
+{
+	"info": {
+		"_postman_id": "132fa379-cf04-4895-9c8c-0c9ffc9178e6",
+		"name": "javan test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12700198"
+	},
+	"item": [
+		{
+			"name": "Kelamin",
+			"item": [
+				{
+					"name": "Get All Kelamin",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/v1/kelamin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"kelamin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Id Kelamin",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/v1/kelamin/b7210fda-06c9-41be-9a65-98eafd8e0972",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"kelamin",
+								"b7210fda-06c9-41be-9a65-98eafd8e0972"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Kelamin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nama\":\"apaantuh\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/v1/kelamin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"kelamin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Status Keluarga",
+			"item": [
+				{
+					"name": "Get All Status Keluarga",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/v1/status-keluarga",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"status-keluarga"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Status Keluarga",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nama\":\"Istri\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/v1/status-keluarga",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"status-keluarga"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Id Status Keluarga",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/v1/status-keluarga/4026c90e-de76-4f8a-bef3-67b2d354fa7d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"status-keluarga",
+								"4026c90e-de76-4f8a-bef3-67b2d354fa7d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Marga",
+			"item": [
+				{
+					"name": "Marga Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/v1/marga",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"marga"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Keluarga",
+			"item": [
+				{
+					"name": "Get All Keluarga",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/v1/keluarga",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"keluarga"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Keluarga",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nama\":\"Pramudya diva alamsyah\",\n    \"idKelamin\":\"ac9a1990-8f4a-4032-9497-7162ca0e0d49\",\n    \"idStatusKeluarga\":\"9c9ea32a-e69e-4615-8cca-208eb28d128f\",\n    \"idMarga\":\"\",\n    \"namaMarga\":\"sinuraya\"\n  \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/v1/keluarga",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"keluarga"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Keluarga",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/v1/keluarga/7308d9a6-b129-44e7-a230-ce7593c6a2dd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"keluarga",
+								"7308d9a6-b129-44e7-a230-ce7593c6a2dd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Keluarga",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nama\":\"dipa\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/v1/keluarga/8e94d3e1-9807-4dc4-bb99-89e2dae3291dz",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"keluarga",
+								"8e94d3e1-9807-4dc4-bb99-89e2dae3291dz"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Asset Keluarga Price",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/v1/keluarga/total-price",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"keluarga",
+								"total-price"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Asset",
+			"item": [
+				{
+					"name": "Get All Asset",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/v1/asset",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"asset"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Asset",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"ROG keren\",\n    \"description\":\"tes123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/v1/asset",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"asset"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Asset",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/v1/asset/093b3f31-adbc-449b-af9c-26007ec545b6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"asset",
+								"093b3f31-adbc-449b-af9c-26007ec545b6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Asset",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\":\"ROG BEKAS\",\n    \"description\":\"tesss banget\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/v1/asset/980656e2-3b20-4a32-8070-0b78f8a762a0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"asset",
+								"980656e2-3b20-4a32-8070-0b78f8a762a0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Get All Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/v1/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"product"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Asset Keluarga",
+			"item": [
+				{
+					"name": "Create Asset Keluarga",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"idKeluarga\":\"854b1934-dba9-4b15-9424-cfde3a162f30\",\n    \"idAsset\":\"c3845587-5347-48d5-b51d-95b1232e786f\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/v1/asset-keluarga",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"asset-keluarga"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Asset Keluarga",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/v1/asset-keluarga/080c64d6-9850-46dc-bc0c-ab39d009a926",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"v1",
+								"asset-keluarga",
+								"080c64d6-9850-46dc-bc0c-ab39d009a926"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
