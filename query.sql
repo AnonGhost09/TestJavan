@@ -42,11 +42,23 @@ CREATE TABLE "keluarga" (
 );
 
 -- CreateTable
+CREATE TABLE "keluarga_asset" (
+    "id" TEXT NOT NULL,
+    "id_keluarga" TEXT,
+    "id_asset" TEXT,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "keluarga_asset_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
 CREATE TABLE "asset" (
     "id" TEXT NOT NULL,
-    "price" INTEGER NOT NULL,
     "description" TEXT NOT NULL,
-    "idKeluarga" TEXT NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+    "title" TEXT NOT NULL,
 
     CONSTRAINT "asset_pkey" PRIMARY KEY ("id")
 );
@@ -61,4 +73,7 @@ ALTER TABLE "keluarga" ADD CONSTRAINT "KELUARGA_MARGA_ID" FOREIGN KEY ("id_marga
 ALTER TABLE "keluarga" ADD CONSTRAINT "KELUARGA_STATUS_KELUARGA_ID" FOREIGN KEY ("id_status_keluarga") REFERENCES "status_keluarga"("id") ON DELETE NO ACTION ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "asset" ADD CONSTRAINT "ASSET_KELUARGA_ID" FOREIGN KEY ("idKeluarga") REFERENCES "keluarga"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "keluarga_asset" ADD CONSTRAINT "keluarga_asset_id_asset_fkey" FOREIGN KEY ("id_asset") REFERENCES "asset"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "keluarga_asset" ADD CONSTRAINT "keluarga_asset_id_keluarga_fkey" FOREIGN KEY ("id_keluarga") REFERENCES "keluarga"("id") ON DELETE CASCADE ON UPDATE CASCADE;
