@@ -35,7 +35,7 @@ const create = async (req, res) => {
   try {
     const result = await kelamin.create(req.body.nama);
 
-    return res.status(200).json({
+    return res.status(201).json({
       status: "success",
       data: result,
     });

@@ -5,7 +5,7 @@
     "node": "18.x"
   },
   "prisma": {
-    "seed": "node prisma/seed.js"
+    "seed": "nodemon prisma/seed.js"
   },
   "private": true,
   "scripts": {
