@@ -22,6 +22,7 @@
     </ul>
     <li>
         Masuk terminal jalankan perintah <strong>npx prisma migrate dev --name init</strong>
+        untuk membuat database dan migration secara automatis
     </li>
     <li>
         Lalu jalankan lagi perintah <strong>npx prisma db seed</strong> maka data yang default akan dimasukan
