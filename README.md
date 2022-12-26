@@ -5,6 +5,7 @@
     <li>Clone projectnya git clone (URL REPO) </li>
     <li>Masuk ke folder TestJavan <strong>cd TestJavan</strong></li>
     <li>Masukan perintah <strong>npm install</strong> di dalam terminal</li>
+    <li>Masukan perintah <strong>npm audit fix --force</strong></li>
 </ol>
 
 <h1>SETUP PRISMA</h1>
@@ -24,6 +25,9 @@
     </li>
     <li>
         Lalu jalankan lagi perintah <strong>npx prisma db seed</strong> maka data yang default akan dimasukan
+    </li>
+    <li>
+        Jalankan aplikasi dengan perintah <strong>npm run start</strong>
     </li>
 </ol>
 
