@@ -35,5 +35,5 @@
 <h1>Panduan pemakaian</h1>
 <ul>
     <li>Buka file <strong>TestJavanERD.pdf</strong> untuk melihat design databasenya</li>
-     <li>Buka file <strong>PostmanLinkDOcumentation.txt</strong> untuk melihat documentasi dari tiap endpoint yang ada</li>
+     <li>Buka file <strong>PostmanLinkDocumentation.txt</strong> untuk melihat documentasi dari tiap endpoint yang ada</li>
 </ul>
