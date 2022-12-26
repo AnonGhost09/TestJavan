@@ -13,11 +13,11 @@
     <li>Ganti settingan database di DATABASE_URL dengan settingan kalian</li>
     <strong>contoh : </strong>
     <ul>
-        <li><YOUR_USER_DB> ganti dengan postgres</li>
-        <li><YOUR_PASSWORD> ganti dengan 12345</li>
-        <li><YOUR_HOST> ganti dengan localhost</li>
-        <li><YOUR_PORT> ganti dengan 5432</li>
-        <li><YOUR_DB_NAME> ganti dengan testjavan</li>
+        <li>(YOUR_USER_DB) ganti dengan postgres</li>
+        <li>(YOUR_PASSWORD) ganti dengan 12345</li>
+        <li>(YOUR_HOST) ganti dengan localhost</li>
+        <li>(YOUR_PORT) ganti dengan 5432</li>
+        <li>(YOUR_DB_NAME) ganti dengan testjavan</li>
     </ul>
     <li>
         Masuk terminal jalankan perintah <strong>npx prisma migrate dev --name init</strong>
