@@ -2,7 +2,7 @@
 
 <h1>SETUP NODE</h1>
 <ol>
-    <li>Clone projectnya git clone <URL REPO> </li>
+    <li>Clone projectnya git clone (URL REPO) </li>
     <li>Masuk ke folder TestJavan <strong>cd TestJavan</strong></li>
     <li>Tidak usah Masukan perintah <strong>npm install</strong> di dalam terminal karea sudah clone dengan node modulenya, (jangan ditiru ketika deployment !)</li>
 </ol>
